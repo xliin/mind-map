@@ -47,6 +47,7 @@ if check_password():
     st.subheader('Gerador de Mapa Mental')
 
     # Set your OpenAI API Key.
+    openai_api_key=st.secrets["open_ai"]['key']
     source_doc = st.file_uploader("Escolha seu PDF de um artigo, livro ou texto. Clique em Gerar Mapa Mental e veja a mágica acontecer" , type="pdf")
     # If the 'Summarize' button is clicked
     if st.button("Gerar Mapa Mental"):
@@ -66,7 +67,7 @@ if check_password():
                         text += page.extract_text()
 
                     # Split Data For Mindmap Generation
-                    text_splitter = TokenTextSplitter(model_name="gpt-4",openai_api_key=st.secrets["open_ai"]['key'], chunk_size=10000, chunk_overlap=1000)
+                    text_splitter = TokenTextSplitter(model_name="gpt-4", chunk_size=10000, chunk_overlap=1000)
                     texts_for_mindmap = text_splitter.split_text(text)
                     docs_for_mindmap = [Document(page_content=t) for t in texts_for_mindmap]
 
