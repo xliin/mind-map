@@ -51,7 +51,7 @@ if check_password():
     # If the 'Summarize' button is clicked
     if st.button("Gerar Mapa Mental"):
         # Validate inputs
-        if not openai_api_key.strip() or not source_doc:
+        if not source_doc:
             st.error(f"Por favor preencha os campos faltantes.")
         else:
             try:
