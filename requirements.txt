@@ -3,3 +3,4 @@ langchain
 tiktoken
 pypdf2
 streamlit
+beautifulsoup4
