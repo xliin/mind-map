@@ -47,7 +47,7 @@ if check_password():
     st.subheader('Gerador de Mapa Mental')
 
     # Set your OpenAI API Key.
-    print(st.secrets["open_ai"]['key'])
+    st.write(st.secrets["open_ai"]['key'])
     source_doc = st.file_uploader("Escolha seu PDF de um artigo, livro ou texto. Clique em Gerar Mapa Mental e veja a mágica acontecer" , type="pdf")
     # If the 'Summarize' button is clicked
     if st.button("Gerar Mapa Mental"):
