@@ -47,7 +47,6 @@ if check_password():
     st.subheader('Gerador de Mapa Mental')
 
     # Set your OpenAI API Key.
-    openai_api_key = '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'
     source_doc = st.file_uploader("Escolha seu PDF de um artigo, livro ou texto. Clique em Gerar Mapa Mental e veja a mágica acontecer" , type="pdf")
     # If the 'Summarize' button is clicked
     if st.button("Gerar Mapa Mental"):
@@ -177,7 +176,7 @@ if check_password():
                     with get_openai_callback() as cb:
 
                         # Initialize the LLM
-                        llm_markdown = ChatOpenAI(openai_api_key=openai_api_key, temperature=0.3, model="gpt-3.5-turbo-16k")
+                        llm_markdown = ChatOpenAI(openai_api_key=st.secrets["open_ai"]['key'], temperature=0.3, model="gpt-3.5-turbo-16k")
 
                         # Initialize the summarization chain
                         summarize_chain = load_summarize_chain(llm=llm_markdown, chain_type="refine", verbose=True, question_prompt=PROMPT_MINDMAP, refine_prompt=REFINE_PROMPT_MINDMAP)
