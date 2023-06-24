@@ -177,7 +177,7 @@ if check_password():
                     with get_openai_callback() as cb:
 
                         # Initialize the LLM
-                        llm_markdown = ChatOpenAI(openai_api_key=st.secrets["open_ai"]['key'], temperature=0.3, model="gpt-3.5-turbo-16k")
+                        llm_markdown = ChatOpenAI(model="gpt-4", openai_api_key=st.secrets["open_ai"]['key'], temperature=0)
 
                         # Initialize the summarization chain
                         summarize_chain = load_summarize_chain(llm=llm_markdown, chain_type="refine", verbose=True, question_prompt=PROMPT_MINDMAP, refine_prompt=REFINE_PROMPT_MINDMAP)
