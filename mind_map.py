@@ -55,7 +55,7 @@ if check_password():
         if not source_doc:
             st.error(f"Por favor preencha os campos faltantes.")
         else:
-#            try:
+             try:
                 with st.spinner('Por favor aguarde...'):
                     # Save uploaded file temporarily to disk, load and split the file into pages, delete temp file
                     with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
@@ -188,6 +188,6 @@ if check_password():
                         # Save mindmap to .md file
                         st.markdown(mindmap['output_text'])
                     st.write(cb)
-#            except Exception as e:
-#                st.exception(f"Ocorreu um erro: {e}")
+             except Exception as e:
+                 st.exception(f"Ocorreu um erro: {e}")
 
